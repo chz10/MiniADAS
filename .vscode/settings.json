@@ -5,6 +5,11 @@
         "CMAKE_BUILD_TYPE": "Debug"
     },
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/include"
+    ],
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.compilerPath": "/usr/bin/c++",
     "code-runner.executorMap": {
         "cpp": "cd $workspaceRoot && g++ -std=c++17 -Iinclude src/main.cpp -o build/main_manual && ./build/main_manual"
     }
