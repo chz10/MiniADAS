@@ -11,3 +11,6 @@ output/vis/*
 
 *.log
 *.tmp
+
+# Local personal notes, not for GitHub.
+错误集.md
