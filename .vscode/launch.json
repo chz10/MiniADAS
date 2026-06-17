@@ -3,16 +3,11 @@
     "configurations": [
         {
             "name": "Debug MiniADAS",
-            "type": "cppdbg",
+            "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/build/mini_adas_eval",
             "args": [],
-            "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "miDebuggerPath": "/usr/bin/lldb",
             "preLaunchTask": "MiniADAS: build"
         }
     ]
