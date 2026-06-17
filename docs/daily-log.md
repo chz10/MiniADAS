@@ -26,3 +26,30 @@ cmake -S . -B build
 cmake --build build
 ./build/mini_adas_eval
 ```
+
+## Day 2 - Core Data Structures
+
+目标：
+
+- 实现 `BBox`；
+- 实现 `ObjectInfo`；
+- 实现 `FrameData`；
+- 实现 `MatchResult`；
+- 更新 `main.cpp` 验证核心结构可以正常包含和使用。
+
+完成情况：
+
+- [x] 添加 `include/core/BBox.hpp`；
+- [x] 添加 `include/core/ObjectInfo.hpp`；
+- [x] 添加 `include/core/FrameData.hpp`；
+- [x] 添加 `include/core/MatchResult.hpp`；
+- [x] 更新 README 当前版本；
+- [x] CMake 构建通过；
+- [x] 提交中文 commit 并推送 GitHub。
+
+验证命令：
+
+```bash
+cmake --build build
+./build/mini_adas_eval
+```

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(MiniADAS_CPP
-    VERSION 0.1.0
+    VERSION 0.2.0
     DESCRIPTION "C++ ADAS perception evaluation and visualization tool"
     LANGUAGES CXX
 )
