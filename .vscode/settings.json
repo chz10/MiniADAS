@@ -4,5 +4,8 @@
     "cmake.configureSettings": {
         "CMAKE_BUILD_TYPE": "Debug"
     },
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "code-runner.executorMap": {
+        "cpp": "cd $workspaceRoot && g++ -std=c++17 -Iinclude src/main.cpp -o build/main_manual && ./build/main_manual"
+    }
 }
