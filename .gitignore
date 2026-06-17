@@ -1,0 +1,13 @@
+build/
+cmake-build-*/
+.cache/
+.DS_Store
+
+output/*
+!output/.gitkeep
+!output/vis/
+output/vis/*
+!output/vis/.gitkeep
+
+*.log
+*.tmp

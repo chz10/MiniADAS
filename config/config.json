@@ -1,0 +1,11 @@
+{
+  "iou_threshold": 0.5,
+  "confidence_threshold": 0.3,
+  "enable_visualization": true,
+  "enable_multithreading": true,
+  "max_threads": 4,
+  "gt_dir": "data/gt",
+  "det_dir": "data/detection",
+  "video_dir": "data/video",
+  "output_dir": "output"
+}
