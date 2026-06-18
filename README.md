@@ -25,12 +25,7 @@ cmake --build build
 ./build/mini_adas_eval
 ```
 
-## VS Code 调试
 
-推荐安装 VS Code 扩展：
-
-- C/C++
-- CMake Tools
 
 项目已提供 `.vscode/launch.json` 和 `.vscode/tasks.json`。在 VS Code 中选择 `Debug MiniADAS`，按 `F5` 即可先执行 CMake Debug 构建，再启动 `build/mini_adas_eval` 调试。
 
@@ -50,6 +45,3 @@ MiniADAS-CPP/
 └── tests/
 ```
 
-## 每日节奏
-
-每天按照 `docs/schedule.md` 的交付物推进，并在当天结束前完成一次 Git 提交与 GitHub 推送。
