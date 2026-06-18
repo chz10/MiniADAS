@@ -53,3 +53,30 @@ cmake --build build
 cmake --build build
 ./build/mini_adas_eval
 ```
+
+## Day 3 - BBox Geometry and IoU
+
+目标：
+
+- 完善 `BBox` 的几何计算能力；
+- 实现无交集、非法框、完全重合、部分重叠场景的 IoU 计算；
+- 在 `main.cpp` 中加入临时断言验证，后续迁移到 GoogleTest。
+
+完成情况：
+
+- [x] 实现 `BBox::intersectionArea`；
+- [x] 实现 `BBox::unionArea`；
+- [x] 实现 `BBox::iou`；
+- [x] 验证宽度、高度、面积、合法性判断；
+- [x] 验证完全重合、无交集、非法框、部分重叠 IoU；
+- [x] 更新 README 当前版本；
+- [x] CMake 构建通过；
+- [x] 提交中文 commit 并推送 GitHub。
+
+验证命令：
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build
+./build/mini_adas_eval
+```

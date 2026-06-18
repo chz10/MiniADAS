@@ -15,7 +15,7 @@
 |---|---|---|---|---|
 | 第 1 天 | 项目初始化 | 创建 Git 仓库、CMake 工程、include/src/tests 目录 | 可编译的空项目 | 已完成 |
 | 第 2 天 | 核心数据结构 | 实现 BBox、ObjectInfo、FrameData、MatchResult | core 模块初版 | 已完成 |
-| 第 3 天 | IoU 基础算法 | 实现面积计算、合法性判断、IoU 计算 | BBox 单元功能完成 | 未开始 |
+| 第 3 天 | IoU 基础算法 | 实现面积计算、合法性判断、IoU 计算 | BBox 单元功能完成 | 已完成 |
 | 第 4 天 | GT 文件解析 | 实现 GTParser，支持 CSV 读取和异常行跳过 | GT 数据可读取 | 未开始 |
 | 第 5 天 | Detection 文件解析 | 实现 DetectionParser，支持置信度过滤 | Detection 数据可读取 | 未开始 |
 | 第 6 天 | 单帧目标匹配 | 实现 ObjectMatcher，完成 GT 与 Det 贪心匹配 | 单帧匹配结果 | 未开始 |

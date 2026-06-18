@@ -6,7 +6,7 @@
 
 ## 当前版本
 
-`v0.2` 核心数据结构版。
+`v0.3` IoU 基础算法版。
 
 已完成：
 
@@ -15,7 +15,8 @@
 - `main.cpp` 可编译运行；
 - 默认配置文件；
 - 14 天排期文档；
-- `BBox`、`ObjectInfo`、`FrameData`、`MatchResult` 核心数据结构。
+- `BBox`、`ObjectInfo`、`FrameData`、`MatchResult` 核心数据结构；
+- `BBox` 面积、合法性、交集面积、并集面积、IoU 计算。
 
 ## 构建方式
 
