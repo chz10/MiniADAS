@@ -14,7 +14,6 @@
 - 基础目录结构；
 - `main.cpp` 可编译运行；
 - 默认配置文件；
-- 14 天排期文档；
 - `BBox`、`ObjectInfo`、`FrameData`、`MatchResult` 核心数据结构。
 
 ## 构建方式
