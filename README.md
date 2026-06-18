@@ -18,6 +18,30 @@
 - `BBox`、`ObjectInfo`、`FrameData`、`MatchResult` 核心数据结构；
 - `BBox` 面积、合法性、交集面积、并集面积、IoU 计算。
 
+## 版本记录
+
+### v0.3 - IoU 基础算法版
+
+- 完善 `BBox` 几何计算能力；
+- 新增交集面积、并集面积、IoU 计算；
+- 覆盖完全重合、部分重叠、无交集、非法框等基础场景；
+- 在 `main.cpp` 中加入临时断言验证，为后续 GoogleTest 测试做准备。
+
+### v0.2 - 核心数据结构版
+
+- 新增 `BBox`，用于描述 2D 目标框；
+- 新增 `ObjectInfo`，用于描述单个目标的帧号、ID、类别、置信度、距离和框信息；
+- 新增 `FrameData`，用于按帧组织目标列表；
+- 新增 `MatchResult`，用于描述 TP、FP、FN、ClassError 等匹配结果。
+
+### v0.1 - 基础工程版
+
+- 初始化 CMake 工程；
+- 创建 `include/`、`src/`、`tests/`、`config/`、`data/`、`docs/` 等基础目录；
+- 添加可运行的 `main.cpp`；
+- 添加默认配置文件和项目排期文档；
+- 完成本地 Git 初始化与 GitHub 仓库绑定。
+
 ## 构建方式
 
 ```bash
