@@ -1,0 +1,6 @@
+frame_id,object_id,category,x1,y1,x2,y2,distance
+1,101,car,100,120,180,240,35.6
+1,102,person,300,160,340,250,22.1
+2,103,truck,80,90,210,260,48.3
+2,104,car,10,20,5,80,12.0
+bad,line,should,be,skipped

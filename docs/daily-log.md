@@ -80,3 +80,32 @@ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
 ./build/mini_adas_eval
 ```
+
+## Day 4 - GT CSV Parser
+
+目标：
+
+- 实现 `GTParser`；
+- 支持读取 GT CSV 文件；
+- 将合法行转换为 `ObjectInfo`；
+- 按 `frame_id` 聚合为 `FrameData`；
+- 跳过非法行并统计解析数量。
+
+完成情况：
+
+- [x] 添加 `include/parser/GTParser.hpp`；
+- [x] 添加 `src/parser/GTParser.cpp`；
+- [x] 添加 `data/gt/sample_gt.csv`；
+- [x] 支持 header 和空行跳过；
+- [x] 支持字段数量、类型转换、非法 bbox 容错；
+- [x] 更新 README 当前版本和版本记录；
+- [x] CMake 构建通过；
+- [x] 提交中文 commit 并推送 GitHub。
+
+验证命令：
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build
+./build/mini_adas_eval
+```

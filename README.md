@@ -6,7 +6,7 @@
 
 ## 当前版本
 
-`v0.3` IoU 基础算法版。
+`v0.4` GT 文件解析版。
 
 已完成：
 
@@ -16,9 +16,18 @@
 - 默认配置文件；
 - 14 天排期文档；
 - `BBox`、`ObjectInfo`、`FrameData`、`MatchResult` 核心数据结构；
-- `BBox` 面积、合法性、交集面积、并集面积、IoU 计算。
+- `BBox` 面积、合法性、交集面积、并集面积、IoU 计算；
+- GT CSV 文件解析、非法行跳过、按帧组织目标数据。
 
 ## 版本记录
+
+### v0.4 - GT 文件解析版
+
+- 新增 `GTParser`，支持读取 GT CSV 文件；
+- 将合法 GT 数据转换为 `ObjectInfo`；
+- 按 `frame_id` 聚合为 `FrameData`；
+- 跳过字段数量错误、类型转换失败、非法目标框等异常行；
+- 添加 `data/gt/sample_gt.csv` 作为解析验证样例。
 
 ### v0.3 - IoU 基础算法版
 

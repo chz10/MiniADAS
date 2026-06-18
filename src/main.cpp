@@ -6,6 +6,7 @@
 #include "core/FrameData.hpp"
 #include "core/MatchResult.hpp"
 #include "core/ObjectInfo.hpp"
+#include "parser/GTParser.hpp"
 
 namespace {
 
@@ -50,11 +51,25 @@ int main() {
     result.gt_id = object.object_id;
     result.gt_category = object.category;
 
-    std::cout << "MiniADAS-CPP v0.3: BBox geometry and IoU ready. "
+    const mini_adas::parser::GTParser gt_parser;
+    const auto parse_result = gt_parser.parseFile("data/gt/sample_gt.csv");
+    assert(parse_result.success);
+    assert(parse_result.parsed_objects == 3);
+    assert(parse_result.skipped_lines == 2);
+    assert(parse_result.frames.size() == 2);
+    assert(parse_result.frames[0].frame_id == 1);
+    assert(parse_result.frames[0].objects.size() == 2);
+    assert(parse_result.frames[1].frame_id == 2);
+    assert(parse_result.frames[1].objects.size() == 1);
+
+    std::cout << "MiniADAS-CPP v0.4: GT parser ready. "
               << "frame_id=" << frame.frame_id
               << ", objects=" << frame.size()
               << ", bbox_area=" << bbox.area()
               << ", sample_iou=" << bbox.iou(detection_bbox)
+              << ", gt_frames=" << parse_result.frames.size()
+              << ", gt_objects=" << parse_result.parsed_objects
+              << ", skipped_lines=" << parse_result.skipped_lines
               << std::endl;
     return 0;
 }
