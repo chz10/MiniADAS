@@ -109,3 +109,33 @@ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
 ./build/mini_adas_eval
 ```
+
+## Day 5 - Detection CSV Parser
+
+目标：
+
+- 实现 `DetectionParser`；
+- 支持读取 Detection CSV 文件；
+- 支持解析 `confidence` 字段；
+- 支持低置信度检测结果过滤；
+- 按 `frame_id` 聚合为 `FrameData`。
+
+完成情况：
+
+- [x] 添加 `include/parser/DetectionParser.hpp`；
+- [x] 添加 `src/parser/DetectionParser.cpp`；
+- [x] 添加 `data/detection/sample_det.csv`；
+- [x] 支持 header 和空行跳过；
+- [x] 支持字段数量、类型转换、非法 bbox 容错；
+- [x] 支持 `confidence_threshold` 过滤；
+- [x] 更新 README 当前版本和版本记录；
+- [x] CMake 构建通过；
+- [x] 提交中文 commit 并推送 GitHub。
+
+验证命令：
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build
+./build/mini_adas_eval
+```

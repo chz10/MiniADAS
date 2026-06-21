@@ -1,0 +1,7 @@
+frame_id,object_id,category,confidence,x1,y1,x2,y2,distance
+1,201,car,0.92,102,118,179,242,34.9
+1,202,person,0.80,301,158,342,249,21.8
+2,203,truck,0.71,78,92,212,258,47.6
+2,204,car,0.20,12,20,76,88,11.5
+2,205,car,0.85,10,20,5,80,12.0
+bad,line,should,be,skipped

@@ -6,6 +6,7 @@
 #include "core/FrameData.hpp"
 #include "core/MatchResult.hpp"
 #include "core/ObjectInfo.hpp"
+#include "parser/DetectionParser.hpp"
 #include "parser/GTParser.hpp"
 
 namespace {
@@ -62,7 +63,19 @@ int main() {
     assert(parse_result.frames[1].frame_id == 2);
     assert(parse_result.frames[1].objects.size() == 1);
 
-    std::cout << "MiniADAS-CPP v0.4: GT parser ready. "
+    const mini_adas::parser::DetectionParser detection_parser;
+    const auto det_result = detection_parser.parseFile("data/detection/sample_det.csv", 0.3);
+    assert(det_result.success);
+    assert(det_result.parsed_objects == 3);
+    assert(det_result.skipped_lines == 3);
+    assert(det_result.frames.size() == 2);
+    assert(det_result.frames[0].frame_id == 1);
+    assert(det_result.frames[0].objects.size() == 2);
+    assert(det_result.frames[0].objects[0].confidence >= 0.3);
+    assert(det_result.frames[1].frame_id == 2);
+    assert(det_result.frames[1].objects.size() == 1);
+
+    std::cout << "MiniADAS-CPP v0.5: Detection parser ready. "
               << "frame_id=" << frame.frame_id
               << ", objects=" << frame.size()
               << ", bbox_area=" << bbox.area()
@@ -70,6 +83,9 @@ int main() {
               << ", gt_frames=" << parse_result.frames.size()
               << ", gt_objects=" << parse_result.parsed_objects
               << ", skipped_lines=" << parse_result.skipped_lines
+              << ", det_frames=" << det_result.frames.size()
+              << ", det_objects=" << det_result.parsed_objects
+              << ", det_skipped_lines=" << det_result.skipped_lines
               << std::endl;
     return 0;
 }

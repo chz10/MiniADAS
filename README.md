@@ -6,7 +6,7 @@
 
 ## 当前版本
 
-`v0.4` GT 文件解析版。
+`v0.5` Detection 文件解析版。
 
 已完成：
 
@@ -17,9 +17,18 @@
 - 14 天排期文档；
 - `BBox`、`ObjectInfo`、`FrameData`、`MatchResult` 核心数据结构；
 - `BBox` 面积、合法性、交集面积、并集面积、IoU 计算；
-- GT CSV 文件解析、非法行跳过、按帧组织目标数据。
+- GT CSV 文件解析、非法行跳过、按帧组织目标数据；
+- Detection CSV 文件解析、置信度过滤、按帧组织检测结果。
 
 ## 版本记录
+
+### v0.5 - Detection 文件解析版
+
+- 新增 `DetectionParser`，支持读取 Detection CSV 文件；
+- 支持解析检测置信度 `confidence`；
+- 支持按置信度阈值过滤低置信度检测目标；
+- 将合法 Detection 数据转换为 `ObjectInfo` 并按 `frame_id` 聚合；
+- 添加 `data/detection/sample_det.csv` 作为解析验证样例。
 
 ### v0.4 - GT 文件解析版
 
