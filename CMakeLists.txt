@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(MiniADAS_CPP
-    VERSION 0.5.0
+    VERSION 0.6.0
     DESCRIPTION "C++ ADAS perception evaluation and visualization tool"
     LANGUAGES CXX
 )
@@ -12,6 +12,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(mini_adas_eval
     src/main.cpp
+    src/matcher/ObjectMatcher.cpp
     src/parser/DetectionParser.cpp
     src/parser/GTParser.cpp
 )

@@ -139,3 +139,32 @@ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
 ./build/mini_adas_eval
 ```
+
+## Day 6 - Single-Frame Object Matching
+
+目标：
+
+- 实现 `ObjectMatcher`；
+- 根据 IoU 阈值完成单帧 GT 和 Detection 贪心匹配；
+- 输出 TP、FP、FN、ClassError；
+- 保证一个 GT 与一个 Detection 最多各匹配一次。
+
+完成情况：
+
+- [x] 添加 `include/matcher/ObjectMatcher.hpp`；
+- [x] 添加 `src/matcher/ObjectMatcher.cpp`；
+- [x] 优先匹配类别相同的高 IoU 候选；
+- [x] 为剩余类别错误的高 IoU 候选生成 `ClassError`；
+- [x] 为未匹配 GT 和 Detection 分别生成 FN、FP；
+- [x] 在 `main.cpp` 覆盖 TP、FP、FN、ClassError、重复检测场景；
+- [x] 更新 README 当前版本和版本记录；
+- [x] CMake 构建通过；
+- [x] 提交中文 commit 并推送 GitHub。
+
+验证命令：
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build
+./build/mini_adas_eval
+```

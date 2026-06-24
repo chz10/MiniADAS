@@ -6,7 +6,7 @@
 
 ## 当前版本
 
-`v0.5` Detection 文件解析版。
+`v0.6` 单帧目标匹配版。
 
 已完成：
 
@@ -18,9 +18,18 @@
 - `BBox`、`ObjectInfo`、`FrameData`、`MatchResult` 核心数据结构；
 - `BBox` 面积、合法性、交集面积、并集面积、IoU 计算；
 - GT CSV 文件解析、非法行跳过、按帧组织目标数据；
-- Detection CSV 文件解析、置信度过滤、按帧组织检测结果。
+- Detection CSV 文件解析、置信度过滤、按帧组织检测结果；
+- 基于 IoU 的单帧贪心匹配，输出 TP、FP、FN、ClassError。
 
 ## 版本记录
+
+### v0.6 - 单帧目标匹配版
+
+- 新增 `ObjectMatcher`，支持单帧 GT 与 Detection 贪心匹配；
+- 优先完成类别相同的高 IoU 匹配，得到 TP；
+- 对剩余高 IoU、类别不同的目标记录 ClassError；
+- 为未匹配 GT 和 Detection 分别生成 FN、FP；
+- 确保一个 GT 或 Detection 最多只参与一次匹配。
 
 ### v0.5 - Detection 文件解析版
 

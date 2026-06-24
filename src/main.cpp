@@ -1,11 +1,14 @@
+#include <algorithm>
 #include <cassert>
 #include <cmath>
 #include <iostream>
+#include <vector>
 
 #include "core/BBox.hpp"
 #include "core/FrameData.hpp"
 #include "core/MatchResult.hpp"
 #include "core/ObjectInfo.hpp"
+#include "matcher/ObjectMatcher.hpp"
 #include "parser/DetectionParser.hpp"
 #include "parser/GTParser.hpp"
 
@@ -36,10 +39,57 @@ void verifyBBoxGeometry() {
     assert(nearlyEqual(box.iou(overlap_box), 2500.0 / 17500.0));
 }
 
+std::size_t countStatus(
+    const std::vector<mini_adas::core::MatchResult>& results,
+    mini_adas::core::MatchStatus status
+) {
+    return static_cast<std::size_t>(std::count_if(
+        results.begin(),
+        results.end(),
+        [status](const mini_adas::core::MatchResult& result) {
+            return result.status == status;
+        }
+    ));
+}
+
+void verifyObjectMatching() {
+    using mini_adas::core::BBox;
+    using mini_adas::core::FrameData;
+    using mini_adas::core::MatchStatus;
+
+    const FrameData gt_frame{
+        10,
+        {
+            {10, 101, "car", 1.0, 20.0, BBox{0.0, 0.0, 100.0, 100.0}},
+            {10, 102, "person", 1.0, 15.0, BBox{200.0, 200.0, 260.0, 280.0}},
+            {10, 103, "bicycle", 1.0, 10.0, BBox{400.0, 400.0, 450.0, 450.0}}
+        }
+    };
+    const FrameData detection_frame{
+        10,
+        {
+            {10, 201, "car", 0.95, 20.5, BBox{10.0, 10.0, 100.0, 100.0}},
+            {10, 202, "car", 0.88, 21.0, BBox{15.0, 15.0, 100.0, 100.0}},
+            {10, 203, "truck", 0.90, 15.5, BBox{202.0, 202.0, 258.0, 278.0}},
+            {10, 204, "car", 0.70, 50.0, BBox{600.0, 600.0, 650.0, 650.0}}
+        }
+    };
+
+    const mini_adas::matcher::ObjectMatcher matcher;
+    const auto results = matcher.matchFrame(gt_frame, detection_frame, 0.5);
+
+    assert(results.size() == 5);
+    assert(countStatus(results, MatchStatus::TruePositive) == 1);
+    assert(countStatus(results, MatchStatus::ClassError) == 1);
+    assert(countStatus(results, MatchStatus::FalseNegative) == 1);
+    assert(countStatus(results, MatchStatus::FalsePositive) == 2);
+}
+
 }  // namespace
 
 int main() {
     verifyBBoxGeometry();
+    verifyObjectMatching();
 
     mini_adas::core::BBox bbox{100.0, 120.0, 180.0, 240.0};
     mini_adas::core::BBox detection_bbox{102.0, 118.0, 179.0, 242.0};
@@ -75,7 +125,7 @@ int main() {
     assert(det_result.frames[1].frame_id == 2);
     assert(det_result.frames[1].objects.size() == 1);
 
-    std::cout << "MiniADAS-CPP v0.5: Detection parser ready. "
+    std::cout << "MiniADAS-CPP v0.6: Object matcher ready. "
               << "frame_id=" << frame.frame_id
               << ", objects=" << frame.size()
               << ", bbox_area=" << bbox.area()

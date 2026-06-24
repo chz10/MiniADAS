@@ -18,7 +18,7 @@
 | 第 3 天 | IoU 基础算法 | 实现面积计算、合法性判断、IoU 计算 | BBox 单元功能完成 | 已完成 |
 | 第 4 天 | GT 文件解析 | 实现 GTParser，支持 CSV 读取和异常行跳过 | GT 数据可读取 | 已完成 |
 | 第 5 天 | Detection 文件解析 | 实现 DetectionParser，支持置信度过滤 | Detection 数据可读取 | 已完成 |
-| 第 6 天 | 单帧目标匹配 | 实现 ObjectMatcher，完成 GT 与 Det 贪心匹配 | 单帧匹配结果 | 未开始 |
+| 第 6 天 | 单帧目标匹配 | 实现 ObjectMatcher，完成 GT 与 Det 贪心匹配 | 单帧匹配结果 | 已完成 |
 | 第 7 天 | 文件级评测 | 实现 Evaluator，统计 TP、FP、FN、Precision、Recall | 单文件评测报告 | 未开始 |
 | 第 8 天 | CSV 导出 | 输出 summary.csv 和 detail.csv | 评测结果文件 | 未开始 |
 | 第 9 天 | OpenCV 可视化 | 绘制 GT 框、Detection 框、类别、置信度 | 可视化图片 / 视频 | 未开始 |
